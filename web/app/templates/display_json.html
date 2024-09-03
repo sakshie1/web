@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch JSON Data</title>
+</head>
+<body>
+    <h1>JSON Data</h1>
+    <div id="data-container"></div> 
+    
+    <script>
+       
+    // URL of the JSON file
+    const jsonUrl = '/static/class.json'; 
+
+    // Fetch the JSON file
+    fetch(jsonUrl)
+        .then(response => response.json())
+        .then(data => {
+           
+            const dataContainer = document.getElementById('data-container');
+
+            
+            dataContainer.textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            console.error('Error fetching the JSON data:', error);
+        });
+</script>
+
+    </script>
+</body>
+</html>
